@@ -1,0 +1,42 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<display-name>KEA REST API</display-name>
+
+	<listener>
+		<listener-class>com.yovisto.kea.rest.guice.RestGuiceServletListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>guiceFilter</filter-name>
+		<filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>guiceFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!--  security-constraint>
+		<web-resource-collection>
+			<web-resource-name>web</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>gerbil</role-name>
+		</auth-constraint>
+	</security-constraint>
+ 
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>internal</realm-name>
+	</login-config>
+
+	<security-role>
+		<description>security role</description>
+		<role-name>gerbil</role-name>
+	</security-role --> 
+ 
+
+</web-app>
