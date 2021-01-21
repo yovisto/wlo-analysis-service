@@ -77,8 +77,7 @@ public class Categories {
 			needle=needle+ "<https://de.wikipedia.org/wiki/"+ e +">+";			
 		}
 		
-//		String tmplt = "http://wlo-virtuoso:8890/sparql?default-graph-uri=&query=select+distinct+%3Fs+%3Fn++from+%3Chttp%3A%2F%2Fwlo.yovisto.com%3E+where+%7B%0D%0AVALUES+%3Fs%7B+XXXXX+%7D%0D%0A%3Fs+%3Chttp%3A%2F%2Fwlo.yovisto.com%2Fontology%2F1.0%2Fnormdata%3E+%3Fn+.%0D%0A%7D+&should-sponge=&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
-		String tmplt = "http://yoyo2:8892/sparql?default-graph-uri=&query=select+distinct+%3Fs+%3Fn++from+%3Chttp%3A%2F%2Fwlo.yovisto.com%3E+where+%7B%0D%0AVALUES+%3Fs%7B+XXXXX+%7D%0D%0A%3Fs+%3Chttp%3A%2F%2Fwlo.yovisto.com%2Fontology%2F1.0%2Fnormdata%3E+%3Fn+.%0D%0A%7D+&should-sponge=&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
+		String tmplt = "http://wlo-virtuoso:8890/sparql?default-graph-uri=&query=select+distinct+%3Fs+%3Fn++from+%3Chttp%3A%2F%2Fwlo.yovisto.com%3E+where+%7B%0D%0AVALUES+%3Fs%7B+XXXXX+%7D%0D%0A%3Fs+%3Chttp%3A%2F%2Fwlo.yovisto.com%2Fontology%2F1.0%2Fnormdata%3E+%3Fn+.%0D%0A%7D+&should-sponge=&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
 		
 		String url = tmplt.replace("XXXXX", needle.replace("&","%26"));
 		System.out.println(url);
@@ -149,8 +148,7 @@ public class Categories {
 			needle=needle+ "<https://de.wikipedia.org/wiki/"+ e +">+";			
 		}
 		
-//		String tmplt = "http://wlo-virtuoso:8890/sparql?default-graph-uri=&query=select+distinct+%3Fc+where+%7B%0D%0AVALUES+%3Fc+%7B+XXXXX++%7D%0D%0A%3Fk+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related%3E+%3Fc+.%0D%0A%7D%0D%0A%0D%0A&should-sponge=&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
-		String tmplt = "http://yoyo2:8892/sparql?default-graph-uri=&query=select+distinct+%3Fc+where+%7B%0D%0AVALUES+%3Fc+%7B+XXXXX++%7D%0D%0A%3Fk+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related%3E+%3Fc+.%0D%0A%7D%0D%0A%0D%0A&should-sponge=&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
+		String tmplt = "http://wlo-virtuoso:8890/sparql?default-graph-uri=&query=select+distinct+%3Fc+where+%7B%0D%0AVALUES+%3Fc+%7B+XXXXX++%7D%0D%0A%3Fk+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related%3E+%3Fc+.%0D%0A%7D%0D%0A%0D%0A&should-sponge=&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
 
 		String url = tmplt.replace("XXXXX", needle.replace("&","%26"));
 		System.out.println(url);
