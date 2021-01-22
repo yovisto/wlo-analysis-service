@@ -9,7 +9,7 @@
 	- [kea-el](https://github.com/yovisto/kea-el)
 
 
-# Installation/Setup
+# Installation
 
 ## Create some Directories
 
@@ -171,14 +171,13 @@ select distinct * where {?s <http://www.w3.org/2004/02/skos/core#prefLabel> ?o} 
 
 ### Start the Tomcat
 
-
 ```
 cd docker/tomcat
 docker run --name wlo-tomcat --network wlo-net -p 8080:8080 -d -v "$(pwd)"/webapps:/usr/local/tomcat/webapps -v "$(pwd)"/cache:/usr/local/tomcat/keacache -v "$(pwd)"/data:/var/indices tomcat:7
 cd ../../
 ```
 
-(You might consider to delete the cache dir content ```docker/tomact/cache```, if you restart Tomcat.)
+(You might consider to delete the cache dir content ```docker/tomcat/cache```, if you restart Tomcat.)
 
 Lets test the extration service:
 
@@ -186,10 +185,10 @@ Lets test the extration service:
 open "http://0.0.0.0:8080/services/extract/Armstrong landet auf dem Mond"
 ```
 
-Should result in a JSON output contiang the annotated text as well as additional   information.
+... should result in a JSON output containing the annotated text as well as additional information.
+(The first request might take a minute.)
 
-
-## Usage
+# Usage
 
 Send an example document extracted from the WLO dump ```exampleDoc.json``` to the analysis service:
 
