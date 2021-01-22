@@ -13,6 +13,7 @@ import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.yovisto.kea.ParameterPresets;
+import com.yovisto.kea.commons.Parameters;
 import com.yovisto.kea.util.IndexAccess;
 import com.yovisto.kea.util.IndexAccessImpl;
 
@@ -27,7 +28,10 @@ public class CandidateService {
 	@Path("{input}")	
 	@Produces(MediaType.APPLICATION_JSON)
 	public JSONArray getAnnotationsPlain(@PathParam("input") String text) throws Exception {
-		access.setup(ParameterPresets.getDefaultParameters());
+		
+		Parameters p = ParameterPresets.getDefaultParameters();	
+		p.setProperty(Parameters.DATA_PATH, "/var/indices");
+		access.setup(p);
 		
 		JSONObject o = new JSONObject();
 		JSONArray a = new JSONArray();

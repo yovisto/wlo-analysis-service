@@ -25,13 +25,11 @@ public class Categories {
 	public static List<String> getDisciplines(List<String> entities) throws JsonProcessingException, MalformedURLException, IOException {
 		 
 		String needle = "";
-		for (String e : entities){
-			// w%3AErasmus_von_Rotterdam+w%3ABerlin+w%3ADeutschland
+		for (String e : entities){			
 			needle=needle+ "<https://de.wikipedia.org/wiki/"+ e +">+";			
 		}
 		
-//		String tmplt = "http://wlo-virtuoso:8890/sparql?default-graph-uri=&query=PREFIX+%3A<http%3A%2F%2Fexample-perma-id%2Feaf-schlagwortverzeichnis-all%2F>+%0D%0APREFIX+w%3A<https%3A%2F%2Fde.wikipedia.org%2Fwiki%2F>+%0D%0Aselect+count(*)+as+%3Fcnt+%3Fdis+where+{%0D%0Aselect+distinct+%3Fc+%3Fb+%3Ftop+%3Fdis+from+<http%3A%2F%2Fwlo.yovisto.com>+where+{%0D%0AVALUES+%3Fc+{+XXXXX+}%0D%0A%3Fk+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related>+%3Fc+.%0D%0A%3Fk+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23broader>*+%3Fb+.%0D%0A%3Fb+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23topConceptOf>+%3Ftop+.%0D%0A%3Fdis+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related>+%3Fb+.%0D%0A}}+group+by+%3Fdis+order+by+desc(%3Fcnt)&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
-		String tmplt = "http://yoyo2:8892/sparql?default-graph-uri=&query=PREFIX+%3A<http%3A%2F%2Fexample-perma-id%2Feaf-schlagwortverzeichnis-all%2F>+%0D%0APREFIX+w%3A<https%3A%2F%2Fde.wikipedia.org%2Fwiki%2F>+%0D%0Aselect+count(*)+as+%3Fcnt+%3Fdis+where+{%0D%0Aselect+distinct+%3Fc+%3Fb+%3Ftop+%3Fdis+from+<http%3A%2F%2Fwlo.yovisto.com>+where+{%0D%0AVALUES+%3Fc+{+XXXXX+}%0D%0A%3Fk+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related>+%3Fc+.%0D%0A%3Fk+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23broader>*+%3Fb+.%0D%0A%3Fb+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23topConceptOf>+%3Ftop+.%0D%0A%3Fdis+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related>+%3Fb+.%0D%0A}}+group+by+%3Fdis+order+by+desc(%3Fcnt)&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
+		String tmplt = "http://wlo-virtuoso:8890/sparql?default-graph-uri=&query=PREFIX+%3A<http%3A%2F%2Fexample-perma-id%2Feaf-schlagwortverzeichnis-all%2F>+%0D%0APREFIX+w%3A<https%3A%2F%2Fde.wikipedia.org%2Fwiki%2F>+%0D%0Aselect+count(*)+as+%3Fcnt+%3Fdis+where+{%0D%0Aselect+distinct+%3Fc+%3Fb+%3Ftop+%3Fdis+from+<http%3A%2F%2Fwlo.yovisto.com>+where+{%0D%0AVALUES+%3Fc+{+XXXXX+}%0D%0A%3Fk+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related>+%3Fc+.%0D%0A%3Fk+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23broader>*+%3Fb+.%0D%0A%3Fb+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23topConceptOf>+%3Ftop+.%0D%0A%3Fdis+<http%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23related>+%3Fb+.%0D%0A}}+group+by+%3Fdis+order+by+desc(%3Fcnt)&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+";
 
 		String url = tmplt.replace("XXXXX", needle.replace("&","%26"));
 		System.out.println(url);
@@ -66,7 +64,6 @@ public class Categories {
 		System.out.println( getNormdata(Arrays.asList("Berlin")) );			
 		
 	}
-
 
 
 	public static Map<String, List<String>> getNormdata(List<String> entities) throws JsonProcessingException, MalformedURLException, IOException {

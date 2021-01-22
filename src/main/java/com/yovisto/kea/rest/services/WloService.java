@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -140,7 +139,7 @@ public class WloService {
 			jresult.put("keywords", anno);
 		}
 
-		// detect languge
+		// detect language
 		TextObject textObject = textObjectFactory.forText(text);
 		Optional<LdLocale> lang = languageDetector.detect(textObject);
 
@@ -239,7 +238,8 @@ public class WloService {
 	private JSONArray annotateKw(List<String> keywords) throws JSONException {
 
 		l.info("obj: " + this.hashCode());
-		Parameters p = ParameterPresets.getDefaultParameters();
+		Parameters p = ParameterPresets.getDefaultParameters();	
+		p.setProperty(Parameters.DATA_PATH, "/var/indices");
 
 		l.info("###############################################################");
 
