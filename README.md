@@ -18,7 +18,6 @@ mkdir data
 mkdir -p docker/tomcat/data
 mkdir docker/tomcat/cache
 mkdir docker/tomcat/webapps
-
 mkdir -p docker/virtuoso/data/toLoad
 ```
 
@@ -31,16 +30,23 @@ Copy the content of the [kea-el](https://github.com/yovisto/kea-el)  ```data``` 
 
 Put the ```categories.txt``` of the [kea-wiki-extraction](https://github.com/yovisto/kea-wiki-extraction) into this project's ```data``` directory and convert it to ```.nt``` format with the following commands:
 
-
-	cat data/categories.txt | awk '{print "<https://de.wikipedia.org/wiki/" $1 "> <http://www.w3.org/2004/02/skos/core#broader> <https://de.wikipedia.org/wiki/" $2 "> . "}' > data/categories.nt
-
+```
+cat data/categories.txt | awk '{print "<https://de.wikipedia.org/wiki/" $1 "> <http://www.w3.org/2004/02/skos/core#broader> <https://de.wikipedia.org/wiki/" $2 "> . "}' > data/categories.nt
+```
 
 Convert and verify the ```categories.nt``` file to ```.ttl```. You might use [rapper](http://librdf.org/raptor/rapper.html) or a similar RDF conversion utility:
 
+```
+rapper -e -i ntriples data/categories.nt > data/categories.ttl
+```
 
-	rapper -e -i ntriples data/categories.nt > data/categories.ttl
+(The ```*.nt``` file might contain some invalid triples which we are ignoring for sake of simplicity (parameter ```-e```).)
 
-(The *.nt file might contain some invalid triples, which we are ignoring for sake of simplicity (parameter ```-e```).)
+Copy or move this file to the Virtuoso data loading directory:
+
+```
+cp data/categories.ttl docker/virtuoso/data/toLoad
+```
 
 ## Building the Java App
 
@@ -131,6 +137,7 @@ cp normdata.ttl docker/virtuoso/data/toLoad
 cp discipline.ttl docker/virtuoso/data/toLoad
 cp eaf-graph-by-subject-all.ttl docker/virtuoso/data/toLoad
 cp eaf-sachgebietssystematik-all.ttl docker/virtuoso/data/toLoad
+
 ```
 -->
 
@@ -149,8 +156,9 @@ cd docker/virtuoso
 docker run --name wlo-virtuoso --network wlo-net -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=dba -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=https://wirlernenonline.de -v `pwd`/data:/data  -d tenforce/virtuoso:virtuoso7.2.5
 cd ../../
 ```
+Just wait some minutes until Virtuoso finishes the import ...
 
-Lets try to make a sparql query. 
+... lets try to make a sparql query. 
 
 ```
 open http://0.0.0.0:8890/sparql
