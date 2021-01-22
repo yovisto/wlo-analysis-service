@@ -11,6 +11,17 @@
 
 # Installation/Setup
 
+## Create some Directories
+
+```
+mkdir data
+mkdir -p docker/tomcat/data
+mkdir docker/tomcat/cache
+mkdir docker/tomcat/webapps
+
+mkdir -p docker/virtuoso/data/toLoad
+```
+
 ## Retrieve and prepare data
 
 Follow the installation instruction for the [kea-wiki-extraction](https://github.com/yovisto/kea-wiki-extraction) and [kea-el](https://github.com/yovisto/kea-el) tools.
