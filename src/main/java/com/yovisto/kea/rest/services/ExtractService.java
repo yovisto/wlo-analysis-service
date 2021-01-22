@@ -173,7 +173,7 @@ public class ExtractService {
 		}
 		term.setStartOffset(term.getStartOffset() + addToStart);
 		term.setEndOffset(term.getEndOffset() - subFromEnd);
-		System.out.println(surface + ": " + addToStart + "  " + subFromEnd);
+		//System.out.println(surface + ": " + addToStart + "  " + subFromEnd);
 	}
 	
 }

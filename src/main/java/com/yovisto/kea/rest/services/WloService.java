@@ -214,12 +214,9 @@ public class WloService {
 					}
 			}
 		}
-		
-		
-
+				
 		// get categories
 		jresult.put("essentialCategories", Categories.getEssential(categories));
-
 
 		System.out.println(jresult);
 		return jresult;
